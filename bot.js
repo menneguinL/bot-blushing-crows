@@ -1,7 +1,5 @@
 const Discord = require('discord.js')
 const logger = require('winston');
-const auth = require('./auth.json');
-
 
 let all_user = [];
 let number_user_message = [];
@@ -49,20 +47,20 @@ bot.on('message', message => {
 //                      ANTIRAID
 // ==================================================================================================================================================
 
- //       if (message.channel.name == "join-chat"){
- //           if ( (message_minute[i]-message_minute[0]) >= 60000){
-   //             message_minute=[];
- //               i = 0;
-  //              user_kick = [];
-  //          }
+        if (message.channel.name == "join-chat"){
+          	if ( (message_minute[i]-message_minute[0]) >= 60000){
+              	message_minute=[];
+              	i = 0;
+             	user_kick = [];
+           	}
 
-   //         message_minute.push(message.createdTimestamp);
-   //         user_kick.push(member);
-  //          i= i + 1;
-   //         if (i > 4) {
-   //             user_kick.forEach(element => element.kick());
-   //         }
-   //     }
+        message_minute.push(message.createdTimestamp);
+        user_kick.push(member);
+        i= i + 1;
+        if (i > 4) {
+            user_kick.forEach(element => element.kick());
+        }
+    }
 
 // ==================================================================================================================================================
 
@@ -75,18 +73,20 @@ bot.on('message', message => {
         if ( (message_minute_spam[a]-message_minute_spam[0]) >= 60000){
                 message_minute_spam=[];
                 a = 0;
-                user_index_spam = [];
+
                 number_user_message_spam = [];
         }
 
         if (!found_spam) {
-            nb_user = all_user_spam.push(message.author.id);
+            all_user_spam.push(message.author.id);
             number_user_message_spam.push(0);
         }
 
         message_minute_spam.push(message.createdTimestamp);
         a= a+1;
+
         const user_index_spam = all_user_spam.findIndex(element => element == message.author.id);
+
         number_user_message_spam[user_index_spam] = number_user_message_spam[user_index_spam] + 1 ;
         if (number_user_message_spam[user_index_spam] >= 20) {
             member.kick();
