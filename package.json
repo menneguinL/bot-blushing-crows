@@ -1,19 +1,25 @@
 {
-  "name": "bot-discord",
-  "version": "1.0.0",
+
+  "name": "Test",
+
+  "description": "Test",
+
+  "version": "0.0.0",
+
   "main": "bot.js",
-  "dependencies": {
-    "discord.io": "^2.5.3",
-    "discord.js": "^11.5.1",
-    "peer": "^0.2.10",
-    "winston": "^3.2.1"
-  },
-  "devDependencies": {},
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+
+    "start": "node bot.js"
+
   },
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
-  "description": ""
+
+  "dependencies": {
+
+    "discord.js": "11.1.0",
+
+    "request": "2.81.0"
+
+  }
+
 }
