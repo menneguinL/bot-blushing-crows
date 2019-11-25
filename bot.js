@@ -50,10 +50,8 @@ bot.on('message', message => {
         }
 
         if (message.content === '!xp') {
-    		message.reply(number_user_message[user_index])
+    		message.reply("Vous avez envoyé " + number_user_message[user_index] + "message");
   		}
-  		else {
-
 
 //                      ANTIRAID
 // ==================================================================================================================================================
@@ -162,7 +160,7 @@ bot.on('message', message => {
 // ==================================================================================================================================================
 	verif = 0;
     }
-}
+
 });
  
 bot.login(process.env.BOT_TOKEN);
