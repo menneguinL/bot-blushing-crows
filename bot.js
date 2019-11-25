@@ -57,6 +57,10 @@ bot.on('message', message => {
     		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages");
   		}
 
+  		if (message.content === '!boring') {
+    		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages");
+  		}
+
 // ==================================================================================================================================================
 
 
