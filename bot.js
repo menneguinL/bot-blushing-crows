@@ -152,4 +152,4 @@ bot.on('message', message => {
     }
 });
  
-bot.login(auth.token); //node index.js
+client.login(process.env.BOT_TOKEN);
