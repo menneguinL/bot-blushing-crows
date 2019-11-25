@@ -49,9 +49,15 @@ bot.on('message', message => {
         	verif = 1 ;
         }
 
+
+//                      COMMAND
+// ==================================================================================================================================================
         if (message.content === '!xp') {
-    		message.reply("Vous avez envoyé " + number_user_message[user_index] + "message");
+    		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages");
   		}
+
+// ==================================================================================================================================================
+
 
 //                      ANTIRAID
 // ==================================================================================================================================================
@@ -115,11 +121,15 @@ bot.on('message', message => {
 
             member.removeRole(role_Second).catch(console.error);
 
+            message.reply("Bravo vous êtes maintenant Vétéran");
+
         } else if (number_user_message[user_index] >= 7){
 
             member.addRole(role_Second).catch(console.error);
 
             member.removeRole(role_homme_de_main).catch(console.error);
+
+            message.reply("Bravo vous êtes maintenant Second");
 
         }  else if (number_user_message[user_index] >= 6){
 
@@ -127,11 +137,15 @@ bot.on('message', message => {
 
             member.removeRole(role_criminel).catch(console.error);
 
+            message.reply("Bravo vous êtes maintenant Homme de main");
+
         } else if (number_user_message[user_index] >= 5){
 
             member.addRole(role_criminel).catch(console.error);
 
             member.removeRole(role_bandit).catch(console.error);
+
+            message.reply("Bravo vous êtes maintenant Criminel");
 
         } else if (number_user_message[user_index] >= 4){
 
@@ -139,11 +153,15 @@ bot.on('message', message => {
 
             member.removeRole(role_terreur).catch(console.error);
 
+            message.reply("Bravo vous êtes maintenant Bandit");
+
         } else if (number_user_message[user_index] >= 3){
 
             member.addRole(role_terreur).catch(console.error);
 
             member.removeRole(role_voyou).catch(console.error);
+
+            message.reply("Bravo vous êtes maintenant Terreur");
 
         } else if (number_user_message[user_index] >= 2){
 
@@ -151,9 +169,13 @@ bot.on('message', message => {
 
             member.removeRole(role_canard_tueur).catch(console.error);
 
+            message.reply("Bravo vous êtes maintenant Voyou");
+
         } else if (number_user_message[user_index] >= 1) {
 
             member.addRole(role_canard_tueur).catch(console.error);
+
+            message.reply("Bravo vous êtes maintenant Canard Tueur");
 
         }
 
