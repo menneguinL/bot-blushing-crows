@@ -13,6 +13,7 @@ let message_minute_spam = [];
 let message_minute = [];
 let user_kick = [];
 let i = -1;
+let a = -1;
 
 const bot = new Discord.Client();
  
@@ -57,7 +58,7 @@ bot.on('message', message => {
 
             message_minute.push(message.createdTimestamp);
             user_kick.push(member);
-            i= i+1;
+            i= i + 1;
             if (i > 4) {
                 user_kick.forEach(element => element.kick());
             }
