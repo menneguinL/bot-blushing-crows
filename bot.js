@@ -33,8 +33,13 @@ bot.on('message', message => {
     );
 
     if (message.author.id != 648228281316802562) {
-        const found = all_user.find(element => element == message.author.id);
 
+    	 if (message.content === 'ping') {
+    		message.reply('pong !')
+  		}
+  		else {
+
+       	const found = all_user.find(element => element == message.author.id);
         if (!found) {
             nb_user = all_user.push(message.author.id);
             number_user_message.push(0);
@@ -156,6 +161,7 @@ bot.on('message', message => {
 // ==================================================================================================================================================
 	verif = 0;
     }
+}
 });
  
 bot.login(process.env.BOT_TOKEN);
