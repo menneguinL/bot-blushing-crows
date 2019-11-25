@@ -71,9 +71,9 @@ bot.on('message', message => {
 
         const found_spam = all_user_spam.find(element => element == message.author.id);
 
-        if ( (message_minute_spam[i]-message_minute_spam[0]) >= 60000){
+        if ( (message_minute_spam[a]-message_minute_spam[0]) >= 60000){
                 message_minute_spam=[];
-                i = 0;
+                a = 0;
                 user_index_spam = [];
                 number_user_message_spam = [];
         }
@@ -84,7 +84,7 @@ bot.on('message', message => {
         }
 
         message_minute_spam.push(message.createdTimestamp);
-        i= i+1;
+        a= a+1;
         const user_index_spam = all_user_spam.findIndex(element => element == message.author.id);
         number_user_message_spam[user_index_spam] = number_user_message_spam[user_index_spam] + 1 ;
         if (number_user_message_spam[user_index_spam] >= 20) {
