@@ -34,10 +34,6 @@ bot.on('message', message => {
 
     if (message.author.id != 648228281316802562) {
 
-    	 if (message.content === 'ping') {
-    		message.reply('pong !')
-  		}
-  		else {
 
        	const found = all_user.find(element => element == message.author.id);
         if (!found) {
@@ -52,6 +48,11 @@ bot.on('message', message => {
         if (!member){
         	verif = 1 ;
         }
+
+        if (message.content === '!xp') {
+    		message.reply(number_user_message[user_index])
+  		}
+  		else {
 
 
 //                      ANTIRAID
