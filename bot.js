@@ -49,20 +49,20 @@ bot.on('message', message => {
 //                      ANTIRAID
 // ==================================================================================================================================================
 
-        if (message.channel.name == "join-chat"){
-            if ( (message_minute[i]-message_minute[0]) >= 60000){
-                message_minute=[];
-                i = 0;
-                user_kick = [];
-            }
+ //       if (message.channel.name == "join-chat"){
+ //           if ( (message_minute[i]-message_minute[0]) >= 60000){
+   //             message_minute=[];
+ //               i = 0;
+  //              user_kick = [];
+  //          }
 
-            message_minute.push(message.createdTimestamp);
-            user_kick.push(member);
-            i= i + 1;
-            if (i > 4) {
-                user_kick.forEach(element => element.kick());
-            }
-        }
+   //         message_minute.push(message.createdTimestamp);
+   //         user_kick.push(member);
+  //          i= i + 1;
+   //         if (i > 4) {
+   //             user_kick.forEach(element => element.kick());
+   //         }
+   //     }
 
 // ==================================================================================================================================================
 
