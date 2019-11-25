@@ -1,0 +1,155 @@
+const Discord = require('discord.js')
+const logger = require('winston');
+const auth = require('./auth.json');
+
+
+let all_user = [];
+let number_user_message = [];
+
+let all_user_spam = [];
+let number_user_message_spam = [];
+let message_minute_spam = [];
+
+let message_minute = [];
+let user_kick = [];
+let i = -1;
+
+const bot = new Discord.Client();
+ 
+bot.on('ready', () => {
+  console.log(`Logged in as ${bot.user.tag}!`);
+});
+ 
+bot.on('message', message => {
+    let role_canard_tueur = message.guild.roles.find((role => role.name === "Canard Tueur"),
+        role_voyou = message.guild.roles.find(role => role.name === "Voyou"),
+        role_terreur = message.guild.roles.find(role => role.name === "Terreur"),
+        role_bandit = message.guild.roles.find(role => role.name === "Bandit"),
+        role_criminel = message.guild.roles.find(role => role.name === "Criminel"),
+        role_homme_de_main = message.guild.roles.find(role => role.name === "Homme de main"),
+        role_Second = message.guild.roles.find(role => role.name === "Second"),
+        role_veteran = message.guild.roles.find(role => role.name === "Vétéran")
+    );
+
+    if (message.author.id != 648228281316802562) {
+        const found = all_user.find(element => element == message.author.id);
+
+        if (!found) {
+            nb_user = all_user.push(message.author.id);
+            number_user_message.push(0);
+        }
+
+        const user_index = all_user.findIndex(element => element == message.author.id);
+        number_user_message[user_index] = number_user_message[user_index] + 1 ;
+
+        const member = message.guild.member(message.author.id);
+
+
+//                      ANTIRAID
+// ==================================================================================================================================================
+
+        if (message.channel.name == "join-chat"){
+            if ( (message_minute[i]-message_minute[0]) >= 60000){
+                message_minute=[];
+                i = 0;
+                user_kick = [];
+            }
+
+            message_minute.push(message.createdTimestamp);
+            user_kick.push(member);
+            i= i+1;
+            if (i > 4) {
+                user_kick.forEach(element => element.kick());
+            }
+        }
+
+// ==================================================================================================================================================
+
+
+//                      ANTISPAM
+// ==================================================================================================================================================
+
+        const found_spam = all_user_spam.find(element => element == message.author.id);
+
+        if ( (message_minute_spam[i]-message_minute_spam[0]) >= 60000){
+                message_minute_spam=[];
+                i = 0;
+                user_index_spam = [];
+                number_user_message_spam = [];
+        }
+
+        if (!found_spam) {
+            nb_user = all_user_spam.push(message.author.id);
+            number_user_message_spam.push(0);
+        }
+
+        message_minute_spam.push(message.createdTimestamp);
+        i= i+1;
+        const user_index_spam = all_user_spam.findIndex(element => element == message.author.id);
+        number_user_message_spam[user_index_spam] = number_user_message_spam[user_index_spam] + 1 ;
+        if (number_user_message_spam[user_index_spam] >= 20) {
+            member.kick();
+        }
+        
+
+
+// ==================================================================================================================================================
+
+
+//                      AJOUTER DES ROLES ET LES ENLEVER
+// ==================================================================================================================================================
+
+        if (number_user_message[user_index] >= 8){
+
+            member.addRole(role_veteran).catch(console.error);
+
+            member.removeRole(role_Second).catch(console.error);
+
+        } else if (number_user_message[user_index] >= 7){
+
+            member.addRole(role_Second).catch(console.error);
+
+            member.removeRole(role_homme_de_main).catch(console.error);
+
+        }  else if (number_user_message[user_index] >= 6){
+
+            member.addRole(role_homme_de_main).catch(console.error);
+
+            member.removeRole(role_criminel).catch(console.error);
+
+        } else if (number_user_message[user_index] >= 5){
+
+            member.addRole(role_criminel).catch(console.error);
+
+            member.removeRole(role_bandit).catch(console.error);
+
+        } else if (number_user_message[user_index] >= 4){
+
+            member.addRole(role_bandit).catch(console.error);
+
+            member.removeRole(role_terreur).catch(console.error);
+
+        } else if (number_user_message[user_index] >= 3){
+
+            member.addRole(role_terreur).catch(console.error);
+
+            member.removeRole(role_voyou).catch(console.error);
+
+        } else if (number_user_message[user_index] >= 2){
+
+            member.addRole(role_voyou).catch(console.error);
+
+            member.removeRole(role_canard_tueur).catch(console.error);
+
+        } else if (number_user_message[user_index] >= 1) {
+
+            member.addRole(role_canard_tueur).catch(console.error);
+
+        }
+
+// ==================================================================================================================================================
+
+    }
+});
+ 
+bot.login(auth.token); //node index.js
