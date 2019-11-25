@@ -54,7 +54,7 @@ bot.on('message', message => {
 // ==================================================================================================================================================
 
         if (message.content === '!xp') {
-    		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages" + member.avatarURL);
+    		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages" + message.author.avatarURL);
   		}
 
 // ==================================================================================================================================================
