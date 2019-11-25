@@ -10,8 +10,10 @@ let message_minute_spam = [];
 
 let message_minute = [];
 let user_kick = [];
+
 let i = -1;
 let a = -1;
+let verif = 0;
 
 const bot = new Discord.Client();
  
@@ -42,17 +44,20 @@ bot.on('message', message => {
         number_user_message[user_index] = number_user_message[user_index] + 1 ;
 
         const member = message.guild.member(message.author.id);
+        if (!member){
+        	verif = 1 ;
+        }
 
 
 //                      ANTIRAID
 // ==================================================================================================================================================
 
-        if (message.channel.name == "join-chat"){
-          	if ( (message_minute[i]-message_minute[0]) >= 60000){
-              	message_minute=[];
-              	i = 0;
-             	user_kick = [];
-           	}
+    if (message.channel.name == "join-chat" && verif == 0){
+        if ( (message_minute[i]-message_minute[0]) >= 60000){
+            message_minute=[];
+            i = 0;
+            user_kick = [];
+        }
 
         message_minute.push(message.createdTimestamp);
         user_kick.push(member);
@@ -88,7 +93,7 @@ bot.on('message', message => {
         const user_index_spam = all_user_spam.findIndex(element => element == message.author.id);
 
         number_user_message_spam[user_index_spam] = number_user_message_spam[user_index_spam] + 1 ;
-        if (number_user_message_spam[user_index_spam] >= 20) {
+        if (number_user_message_spam[user_index_spam] >= 20 && verif == 0) {
             member.kick();
         }
         
@@ -149,7 +154,7 @@ bot.on('message', message => {
         }
 
 // ==================================================================================================================================================
-
+	verif = 0;
     }
 });
  
