@@ -58,7 +58,7 @@ bot.on('message', message => {
   		}
 
   		if (message.content === '!boring') {
-    		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages");
+    		message.reply("https://www.youtube.com/watch?v=" + "aaaaaaaaaaa");
   		}
 
 // ==================================================================================================================================================
