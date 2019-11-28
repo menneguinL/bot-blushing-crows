@@ -63,8 +63,7 @@ bot.on('message', message => {
     		i = 1
     		while (i < array_role.length) {
     			if (array_role[i + 1]) {
-
-    					message.reply(array_role[i] + " " + array_role[i + 1]);
+    					message.channel.send(array_role[i] + " " + array_role[i + 1])
     			}
     			i = i + 2;
     		}
