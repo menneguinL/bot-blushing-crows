@@ -69,15 +69,13 @@ bot.on('message', message => {
     		role_menu.push(message);
     		role_menu[message] = [];
     		while (i < array_role.length) {
-    			if (array_role[i + 1]) {
+    			if (array_role[i + 1] != "") {
     					message.channel.send(" ");
     					message.channel.send(array_role[i] + " " + ":" + " " + array_role[i + 1])
     					role_menu[message].push(array_role[i + 1]);
     			}
     			i = i + 2;
     		}
-    		message.channel.send(role_menu);
-    		message.channel.send(role_menu[message]);
     		message.delete();
   		}
   		
