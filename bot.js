@@ -11,7 +11,7 @@ let message_minute_spam = [];
 let message_minute = [];
 let user_kick = [];
 
-let role_menu = [][];
+let role_menu = [];
 
 let i = -1;
 let a = -1;
@@ -67,6 +67,7 @@ bot.on('message', message => {
     		message.channel.send("Role Menu: Rôles de départ");
     		message.channel.send("React to give yourself a role.");
     		role_menu.push(message);
+    		role_menu[message] = [];
     		while (i < array_role.length) {
     			if (array_role[i + 1]) {
     					message.channel.send(" ");
