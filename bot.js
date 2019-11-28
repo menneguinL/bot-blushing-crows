@@ -53,8 +53,14 @@ bot.on('message', message => {
 //                      COMMAND
 // ==================================================================================================================================================
 
+		let command = JSON.parse(message.content);
+		message.reply(command);
+
         if (message.content === '!xp') {
     		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages");
+  		}
+        if (message.content === '!role') {
+    		message.reply();
   		}
   		
 // ==================================================================================================================================================
