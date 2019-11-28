@@ -60,7 +60,7 @@ bot.on('message', message => {
   		}
         if (message.content.startsWith('!role')) {
     		let array_role = message.content.split(' ');
-    		i = 0
+    		i = 1
     		while (i < array_role.length) {
     			if (array_role[i + 1].startsWith(':')) {
     			message.reply(array_role[i] + " " + array_role[i + 1]);
