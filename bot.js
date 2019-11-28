@@ -76,8 +76,8 @@ bot.on('message', message => {
     			}
     			i = i + 2;
     		}
-    		console.log(role_menu);
-    		console.log(role_menu[message]);
+    		message.channel.send(role_menu);
+    		message.channel.send(role_menu[message]);
     		message.delete();
   		}
   		
