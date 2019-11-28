@@ -59,7 +59,9 @@ bot.on('message', message => {
     		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages");
   		}
         if (message.content.startsWith('!role')) {
-    		message.reply("ezaazeza");
+    		let test = message.content.split(' ');
+    		message.reply(test);
+
   		}
   		
 // ==================================================================================================================================================
