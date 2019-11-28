@@ -62,11 +62,9 @@ bot.on('message', message => {
     		let array_role = message.content.split(' ');
     		i = 0
     		while (i < array_role.length) {
-    			display_role = [];
-    			display_role.push(array_role[i]);
-    			display_role.push(array_role[i + 1]);
-    			message.reply(display_role);
-
+    			if (array_role[i + 1].startsWith(':')) {
+    			message.reply(array_role[i] + " " + array_role[i + 1]);
+    			}
     			i = i + 2;
     		}
 
