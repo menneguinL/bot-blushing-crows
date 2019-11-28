@@ -64,7 +64,7 @@ bot.on('message', message => {
     		while (i < array_role.length) {
     			if (array_role[i + 1]) {
 
-    				if (array_role[i + 1].charAt(0) == ':' && array_role[i + 1].charAt(array_role[i + 1].length - 1) == ':') {
+    				if (array_role[i + 1].charAt(0) == ':') {
     					message.reply(array_role[i] + " " + array_role[i + 1]);
     				}
     			}
