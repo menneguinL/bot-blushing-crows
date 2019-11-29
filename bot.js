@@ -68,7 +68,14 @@ bot.on('message', message => {
     		message.channel.send("React to give yourself a role.");
     		role_menu.push(message);
     		role_menu[message] = [];
+    		while (i < array_role.length) {
+    			if (array_role[i + 1] != "") {
 
+    					message.channel.send(array_role[i] + " " + ":" + " " + array_role[i + 1])
+    					role_menu[message].push(array_role[i + 1]);
+    			}
+    			i = i + 2;
+    		}
     		message.delete();
   		}
   		
