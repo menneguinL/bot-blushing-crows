@@ -73,10 +73,10 @@ bot.on('message', message => {
 
     					message.channel.send(array_role[i] + " " + ":" + " " + array_role[i + 1])
     					role_menu[message][array_role[i + 1]] = array_role[i];
-    					console.log(role_menu[message]);
     			}
     			i = i + 2;
     		}
+    		console.log(role_menu);
     		message.delete();
   		}
   		
