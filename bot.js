@@ -68,13 +68,10 @@ bot.on('message', message => {
     		message.channel.send("React to give yourself a role.");
     		role_menu.push(message);
     		role_menu[message] = [];
-    		while (i < array_role.length) {
-    			if (array_role[i + 1] != "") {
     					message.channel.send(" ");
     					message.channel.send(array_role[i] + " " + ":" + " " + array_role[i + 1])
     					role_menu[message].push(array_role[i + 1]);
-    			}
-    			i = i + 2;
+
     		}
     		message.delete();
   		}
@@ -138,7 +135,7 @@ bot.on('message', message => {
 //                      AJOUTER DES ROLES ET LES ENLEVER
 // ==================================================================================================================================================
 
-        if (number_user_message[user_index] == 8){
+        if (number_user_message[user_index] == 3000){
 
             member.addRole(role_veteran).catch(console.error);
 
@@ -146,7 +143,7 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Vétéran");
 
-        } else if (number_user_message[user_index] == 7){
+        } else if (number_user_message[user_index] == 2500){
 
             member.addRole(role_Second).catch(console.error);
 
@@ -154,7 +151,7 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Second");
 
-        }  else if (number_user_message[user_index] == 6){
+        }  else if (number_user_message[user_index] == 2000){
 
             member.addRole(role_homme_de_main).catch(console.error);
 
@@ -162,7 +159,7 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Homme de main");
 
-        } else if (number_user_message[user_index] == 5){
+        } else if (number_user_message[user_index] == 1500){
 
             member.addRole(role_criminel).catch(console.error);
 
@@ -170,7 +167,7 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Criminel");
 
-        } else if (number_user_message[user_index] == 4){
+        } else if (number_user_message[user_index] == 500){
 
             member.addRole(role_bandit).catch(console.error);
 
@@ -178,7 +175,7 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Bandit");
 
-        } else if (number_user_message[user_index] == 3){
+        } else if (number_user_message[user_index] == 125){
 
             member.addRole(role_terreur).catch(console.error);
 
@@ -186,7 +183,7 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Terreur");
 
-        } else if (number_user_message[user_index] == 2){
+        } else if (number_user_message[user_index] == 25){
 
             member.addRole(role_voyou).catch(console.error);
 
@@ -194,7 +191,7 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Voyou");
 
-        } else if (number_user_message[user_index] == 1) {
+        } else if (number_user_message[user_index] == 5) {
 
             member.addRole(role_canard_tueur).catch(console.error);
 
