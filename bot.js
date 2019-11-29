@@ -63,12 +63,13 @@ bot.on('message', message => {
         if (message.content.startsWith('!role')) {
     		let array_role = message.content.split(' ');
     		i = 1
-    		message.channel.send(" ");
+
     		message.channel.send("Role Menu: Rôles de départ");
     		message.channel.send("React to give yourself a role.");
     		role_menu.push(message);
     		role_menu[message] = [];
 
+    		message.delete();
   		}
   		
 // ==================================================================================================================================================
