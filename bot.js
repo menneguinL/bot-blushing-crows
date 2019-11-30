@@ -1,3 +1,5 @@
+import * as tf from '@tensorflow/tfjs-node'
+
 const Discord = require('discord.js')
 const logger = require('winston');
 
