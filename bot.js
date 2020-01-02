@@ -11,10 +11,10 @@ let message_minute_spam = [];
 let message_minute = [];
 let user_kick = [];
 
-let role_menu = [];
+let role_menu = {};
 
 let i = -1;
-let a = -1;
+let  a = -1;
 let verif = 0;
 
 const bot = new Discord.Client();
@@ -63,9 +63,8 @@ bot.on('message', message => {
         if (message.content.startsWith('!role')) {
         	let string = '';
     		let array_role = message.content.split(' ');
+    		role_menu[message.id] = "";
     		i = 1
-    		role_menu.push(message);
-    		role_menu[message] = [];
     		while (i < array_role.length) {
     			if (array_role[i + 1] != "") {
     				if (string == "") {
@@ -73,11 +72,12 @@ bot.on('message', message => {
     				} else {
     					string =  string + "\n" + array_role[i] + " " + ":" + " " + array_role[i + 1];
     				}
-    				role_menu[message][array_role[i + 1]] = array_role[i];
+    				role_menu[message.id] = role_menu[message.id] + " " + array_role[i];
     			}
     			i = i + 2;
     		}
     		message.channel.send("Role Menu: Rôles de départ\nReact to give yourself a role.\n" + string);
+    		message.channel.send(role_menu);
     		message.delete();
 
   		}
