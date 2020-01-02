@@ -68,7 +68,11 @@ bot.on('message', message => {
     		role_menu[message] = [];
     		while (i < array_role.length) {
     			if (array_role[i + 1] != "") {
-    				string =  string + "\n" + array_role[i] + " " + ":" + " " + array_role[i + 1];
+    				if (string == "") {
+    					string = array_role[i] + " " + ":" + " " + array_role[i + 1];
+    				} else {
+    					string =  string + "\n" + array_role[i] + " " + ":" + " " + array_role[i + 1];
+    				}
     				role_menu[message][array_role[i + 1]] = array_role[i];
     			}
     			i = i + 2;
