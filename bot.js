@@ -1,5 +1,3 @@
-import * as tf from '@tensorflow/tfjs-node'
-
 const Discord = require('discord.js')
 const logger = require('winston');
 
@@ -78,7 +76,7 @@ bot.on('message', message => {
     			}
     			i = i + 2;
     		}
-    		console.log(role_menu);
+
     		message.delete();
   		}
   		
@@ -141,47 +139,50 @@ bot.on('message', message => {
 //                      AJOUTER DES ROLES ET LES ENLEVER
 // ==================================================================================================================================================
 
-        if (number_user_message[user_index] == 3000){
+
+	switch (number_user_message[user_index]) {
+        case 3000 :
 
             member.addRole(role_veteran).catch(console.error);
 
             member.removeRole(role_Second).catch(console.error);
 
             message.reply("Bravo vous êtes maintenant Vétéran");
+            break;
 
-        } else if (number_user_message[user_index] == 2500){
+        case 2500 :
 
             member.addRole(role_Second).catch(console.error);
 
             member.removeRole(role_homme_de_main).catch(console.error);
 
             message.reply("Bravo vous êtes maintenant Second");
-
-        }  else if (number_user_message[user_index] == 2000){
+            break
+        case 2000 :
 
             member.addRole(role_homme_de_main).catch(console.error);
 
             member.removeRole(role_criminel).catch(console.error);
 
             message.reply("Bravo vous êtes maintenant Homme de main");
-
-        } else if (number_user_message[user_index] == 1500){
+            break;
+        case 1500 :
 
             member.addRole(role_criminel).catch(console.error);
 
             member.removeRole(role_bandit).catch(console.error);
 
             message.reply("Bravo vous êtes maintenant Criminel");
-
-        } else if (number_user_message[user_index] == 500){
+            break;
+        case 500 :
 
             member.addRole(role_bandit).catch(console.error);
 
             member.removeRole(role_terreur).catch(console.error);
 
             message.reply("Bravo vous êtes maintenant Bandit");
-
-        } else if (number_user_message[user_index] == 125){
+            break;
+        case 125 :
 
             member.addRole(role_terreur).catch(console.error);
 
@@ -189,21 +190,23 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Terreur");
 
-        } else if (number_user_message[user_index] == 25){
+        case 25 :
 
             member.addRole(role_voyou).catch(console.error);
 
             member.removeRole(role_canard_tueur).catch(console.error);
 
             message.reply("Bravo vous êtes maintenant Voyou");
-
-        } else if (number_user_message[user_index] == 5) {
+            break;
+        case 5 :
 
             member.addRole(role_canard_tueur).catch(console.error);
 
             message.reply("Bravo vous êtes maintenant Canard Tueur");
-
-        }
+            break;
+        default: 
+        	message.reply("wtf tu as tout fait bugger");
+	}
 
 // ==================================================================================================================================================
 	verif = 0;
