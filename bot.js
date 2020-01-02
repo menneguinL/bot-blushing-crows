@@ -63,21 +63,16 @@ bot.on('message', message => {
         if (message.content.startsWith('!role')) {
     		let array_role = message.content.split(' ');
     		i = 1
-
-    		message.channel.send("Role Menu: Rôles de départ");
-    		message.channel.send("React to give yourself a role.");
     		role_menu.push(message);
     		role_menu[message] = [];
     		while (i < array_role.length) {
     			if (array_role[i + 1] != "") {
-
-    					message.channel.send(array_role[i] + " " + ":" + " " + array_role[i + 1])
-    					role_menu[message][array_role[i + 1]] = array_role[i];
-    					message.reply(role_menu);
+    				message.channel.send(array_role[i] + " " + ":" + " " + array_role[i + 1])
+    				role_menu[message][array_role[i + 1]] = array_role[i];
     			}
     			i = i + 2;
     		}
-
+    		message.channel.send("Role Menu: Rôles de départ  \n React to give yourself a role. \n " + role_menu);
     		message.delete();
   		}
   		
