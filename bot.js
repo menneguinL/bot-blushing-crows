@@ -204,8 +204,6 @@ bot.on('message', message => {
 
             message.reply("Bravo vous êtes maintenant Canard Tueur");
             break;
-        default: 
-        	message.reply("wtf tu as tout fait bugger");
 	}
 
 // ==================================================================================================================================================
