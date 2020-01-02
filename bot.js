@@ -73,6 +73,7 @@ bot.on('message', message => {
 
     					message.channel.send(array_role[i] + " " + ":" + " " + array_role[i + 1])
     					role_menu[message][array_role[i + 1]] = array_role[i];
+    					message.reply(role_menu);
     			}
     			i = i + 2;
     		}
