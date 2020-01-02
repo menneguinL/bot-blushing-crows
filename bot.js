@@ -61,6 +61,7 @@ bot.on('message', message => {
     		message.reply("Vous avez envoyé " + number_user_message[user_index] + " messages");
   		}
         if (message.content.startsWith('!role')) {
+        	let role_menu = [];
     		let array_role = message.content.split(' ');
     		i = 1
     		role_menu.push(message);
