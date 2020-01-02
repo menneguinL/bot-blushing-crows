@@ -79,6 +79,7 @@ bot.on('message', message => {
     		}
     		message.channel.send("Role Menu: Rôles de départ\nReact to give yourself a role.\n " + string);
     		message.channel.send(role_menu);
+    		message.channel.send(role_menu[message]);
     		message.delete();
 
   		}
